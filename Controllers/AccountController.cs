@@ -13,6 +13,7 @@ using DashboardTest.Models;
 
 namespace DashboardTest.Controllers
 {
+
     [Authorize]
     [InitializeSimpleMembership]
     public class AccountController : Controller
