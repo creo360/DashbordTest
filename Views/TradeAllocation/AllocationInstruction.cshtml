@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "AllocationInstruction";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/ui-grid-unstable.css" rel="stylesheet" />
+
+<style type="text/css">
+    .ui-grid-pager-panel {
+        bottom: -35px !important;
+    }
+
+    .ng-scope.ng-isolate-scope.ui-grid-native-scrollbar.horizontal {
+        bottom: 0px !important;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .center-box {
+        width: 50%;
+        height: 50%;
+        position: relative;
+        left: 40%;
+        top: 40%;
+    }
+
+    .grid {
+        width: 100%;
+        min-height: 600px;
+        height: 100px;
+    }
+
+    .ui-grid-pager-container {
+        margin-left: -10px;
+    }
+</style>
+
+
+@section scripts{
+
+    <script src="~/Scripts/app/controllers/AllocInstController.js"></script>
+
+}
+
+
+
+<h2>AllocationInstruction</h2>
+
+@*<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-animate.js"></script>
+<script src="~/Scripts/ui-grid-unstable.js"></script>
+<script src="~/Scripts/app/app.js"></script>*@
+<script src="~/Scripts/app/controllers/AllocInstController.js"></script>
+
+
+
+<div id="gridContainer">
+    <div ng-controller="AllocInstController">
+        <div id="grid1" ui-grid="gridOptions" ui-grid-pagination class="grid">
+
+            <div class="overlay" id="shadowBox">
+                <div class="center-box">
+                    <i class="fa fa-spinner fa-spin fa-3x" style="color: white"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,821 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - SGX PTS API Dashboard</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/css/ace.min.css" rel="stylesheet" />
+    <link href="~/Content/css/ace-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/css/ace-skins.min.css" rel="stylesheet" />
+    <script src="~/Scripts/ace-extra.min.js"></script>
+
+
+    
+   
+
+
+    <style type="text/css">
+        #sidebar {
+            /*pa
+                dding-top: 85px;*/
+        }
+
+        #breadcrumbs {
+            padding-top: 50px;
+        }
+
+        .main-content {
+            margin-left: 200px;
+        }
+
+        .sidebar-collapse > [class*='ace-icon'] {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 14px;
+            color: #aaa;
+            border: 1px solid #bbb;
+            padding: 0 5px;
+            line-height: 18px;
+            border-radius: 16px;
+            background-color: #fff;
+            position: relative;
+        }
+    </style>
+
+</head>
+<body >
+
+    <div id="navbar" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a href="#" class="brand">
+                    <small>
+                        <i class="fa fa-globe"></i>
+                        SGX Post Trade Services API
+                    </small>
+                </a>
+
+                <script type="text/javascript">
+                    try { ace.settings.check('navbar', 'fixed') } catch (e) { }
+                </script>
+
+                <ul class="nav ace-nav pull-right">
+
+                    <li class="light-blue">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <img alt="Jason's Photo" src="~/Content/img/avatars/avatar2.png" class="nav-user-photo">
+                            <span class="user-info">
+                                <small>Welcome,</small>
+                                Jason
+                            </span>
+
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-cog"></i>
+                                    Settings
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="profile.html">
+                                    <i class="ace-icon fa fa-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-power-off"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+                <!-- /.navbar-container -->
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try { ace.settings.check('breadcrumbs', 'responsive') } catch (e) { }
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">Home</a>
+                </li>
+                <li class="active">Dashboard</li>
+            </ul>
+            <!-- /.breadcrumb -->
+        </div>
+    </div>
+
+    <div class="main-container" id="main-container">
+        <script type="text/javascript">
+            try { ace.settings.check('main-container', 'fixed') } catch (e) { }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            @*responsive*@
+            <script type="text/javascript">
+                try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
+            </script>
+
+            <ul class="nav nav-list">
+                <li>@*class="active"*@
+                    <a href="#">
+                        <i class="menu-icon fa fa-tachometer"></i>
+                        <span class="menu-text">Dashboard </span>
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-desktop"></i>
+                        <span class="menu-text">Position Accounts
+                        </span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="menu-icon fa fa-caret-right"></i>
+
+                                Position Accounts Details
+									@*<b class="arrow fa fa-angle-down"></b>*@
+                            </a>
+
+                            <!-- Sub Menu under Position Account
+                            <b class="arrow"></b>
+                           
+                            <ul class="submenu">
+                                <li class="">
+                                    <a href="top-menu.html">
+                                        <i class="menu-icon fa fa-caret-right"></i>
+                                        Top Menu
+                                    </a>
+
+                                    <b class="arrow"></b>
+                                </li>
+
+                                <li class="">
+                                    <a href="two-menu-1.html">
+                                        <i class="menu-icon fa fa-caret-right"></i>
+                                        Two Menus 1
+                                    </a>
+
+                                    <b class="arrow"></b>
+                                </li>
+
+                                <li class="">
+                                    <a href="two-menu-2.html">
+                                        <i class="menu-icon fa fa-caret-right"></i>
+                                        Two Menus 2
+                                    </a>
+
+                                    <b class="arrow"></b>
+                                </li>
+
+                                <li class="">
+                                    <a href="mobile-menu-1.html">
+                                        <i class="menu-icon fa fa-caret-right"></i>
+                                        Default Mobile Menu
+                                    </a>
+
+                                    <b class="arrow"></b>
+                                </li>
+
+                                <li class="">
+                                    <a href="mobile-menu-2.html">
+                                        <i class="menu-icon fa fa-caret-right"></i>
+                                        Mobile Menu 2
+                                    </a>
+
+                                    <b class="arrow"></b>
+                                </li>
+
+                                <li class="">
+                                    <a href="mobile-menu-3.html">
+                                        <i class="menu-icon fa fa-caret-right"></i>
+                                        Mobile Menu 3
+                                    </a>
+
+                                    <b class="arrow"></b>
+                                </li>
+                            </ul>
+                            -->
+
+                        </li>
+
+                        <li class="">
+                            <a href="typography.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Position Accounts Enquiry
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Position Accounts Request Acknowledgement
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="buttons.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Position Accounts Request Acknowledgement Groups
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li class="">
+                    <!-- Load partial -->
+
+
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-list"></i>
+                        <span class="menu-text">Trade Allocations </span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            @*<a href='@Url.Content("~/TradeAllocation/Index")' class="api-link">*@
+                            <a href='@Url.Action("Index","TradeAllocation")' class="api-link">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Allocation Instructions
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href='@Url.Content("~/TradeAllocation/Index")' class="api-link">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Allocation Reports
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href='@Url.Content("~/TradeAllocation/Index")' class="api-link">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Allocation Instructions Acknowledgment
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href='@Url.Content("~/TradeAllocation/Index")' class="api-link">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Allocation Instructions Alert
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-pencil-square-o"></i>
+                        <span class="menu-text">Settlement  </span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="form-elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Instruction (sese.023.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="form-elements-2.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Status Advice (sese.024.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="form-wizard.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Confirmation (sese.025.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="wysiwyg.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Condition Modification Request (sese.030.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Condition Modification Status Advice (sese.031.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Modification Request (sese.038.001.02)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Modification Request Status Advice (sese.039.001.01)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Cancellation Request (sese.020.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Cancellation Request Status Advice (sese.027.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Allegement Notification (sese.028.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Allegement Removal Advice (sese.029.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Counter Party Response (sese.040.001.01)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Intra Position Movement Instruction (semt.013.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Intra Position Movement Status Advice (semt.014.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Intra Position Movement Confirmation (semt.015.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Securities Statement Query(semt.021.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Condition Modification Status Advice (sese.031.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Securities Status Or Statement Query Status Advice (sese.022.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Posting Report (semt.017.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Transaction Pending Report (semt.018.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="dropzone.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Settlement Transaction Allegement Report (semt.019.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-list-alt"></i>
+                        <span class="menu-text">EPS/GIRO services </span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="form-elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Mandate Initiation Request (pain.009.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="form-elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Mandate Cancellation Request (pain.011.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="form-elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Mandate Acceptance Report (pain.012.001.03)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="form-elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Customer Credit Transfer Initiation (pain.001.001.05)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="form-elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Customer Direct Debit Initiation (pain.008.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="form-elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Customer Payment Reversal (pain.007.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="form-elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Customer Payment Status Report (pain.002.001.05)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="form-elements.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Bank To Customer Debit Credit Notification (camt.054.001.04)
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+
+                    </ul>
+
+                </li>
+
+                <li class="">
+                    <a href="calendar.html">
+                        <i class="menu-icon fa fa-calendar"></i>
+
+                        <span class="menu-text">Calendar
+
+								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
+                                    <i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
+                                </span>
+                        </span>
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+                <li class="">
+                    <a href="gallery.html">
+                        <i class="menu-icon fa fa-picture-o"></i>
+                        <span class="menu-text">Gallery </span>
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-tag"></i>
+                        <span class="menu-text">More Pages </span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="profile.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                User Profile
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="inbox.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Inbox
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="pricing.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Pricing Tables
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="invoice.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Invoice
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="timeline.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Timeline
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="email.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Email Templates
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="login.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Login &amp; Register
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-file-o"></i>
+
+                        <span class="menu-text">Other Pages
+
+								<span class="badge badge-primary">5</span>
+                        </span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="faq.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                FAQ
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="error-404.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Error 404
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="error-500.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Error 500
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="grid.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Grid
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="blank.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Blank Page
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /.nav-list -->
+
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+            </div>
+
+
+            <script type="text/javascript">
+                try { ace.settings.check('sidebar', 'collapsed') } catch (e) { }
+            </script>
+        </div>
+
+        <div class="main-content">
+            <div class="main-content-inner">
+                <div class="row">
+                    <div class="page-content" id="pageContent">
+
+                        @RenderBody()
+                        @*<h1>Simple Sidebar is a basic sidebar menu page layout for Bootstrap websites with off canvas navigation on smaller screen sizes.</h1>*@
+                    </div>
+                </div>
+                <!-- /.page-content -->
+            </div>
+        </div>
+        <!-- /.main-content -->
+
+        <div class="footer">
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/ace-elements.min.js"></script>
+    <script src="~/Scripts/ace.min.js"></script>
+
+    <!-- Loading scripts -->    
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
+    <script src="~/Scripts/ui-grid-unstable.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+   @* <script src="~/Scripts/Test.js"></script>*@
+    
+    @RenderSection("scripts", required: false)
+
+    
+    
+</body>
+</html>

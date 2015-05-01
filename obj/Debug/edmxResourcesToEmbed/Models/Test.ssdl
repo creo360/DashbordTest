@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Test.dbo.OrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="UnitPrice" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="Discount" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="Quantity" Type="smallint" Nullable="false" />
+    <Property Name="Discount" Type="real" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Test.dbo.Orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="nchar" MaxLength="5" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="RequiredDate" Type="datetime" />
+    <Property Name="ShippedDate" Type="datetime" />
+    <Property Name="ShipVia" Type="int" Nullable="false" />
+    <Property Name="Freight" Type="money" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="40" />
+    <Property Name="ShipAddress" Type="nvarchar" MaxLength="60" />
+    <Property Name="ShipCity" Type="nvarchar" MaxLength="15" />
+    <Property Name="ShipRegion" Type="nvarchar" MaxLength="15" />
+    <Property Name="ShipPostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="ShipCountry" Type="nvarchar" MaxLength="15" />
+    <Property Name="TestColumn" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tb_AllocationInst">
+    <Key>
+      <PropertyRef Name="IDD" />
+    </Key>
+    <Property Name="IDD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AllocID" Type="varchar" MaxLength="100" />
+    <Property Name="AllocTransType" Type="char" MaxLength="1" />
+    <Property Name="AllocType" Type="int" />
+    <Property Name="SecondaryAllocID" Type="varchar" MaxLength="100" />
+    <Property Name="AllocGroupID" Type="varchar" MaxLength="100" />
+    <Property Name="Side" Type="char" MaxLength="1" />
+    <Property Name="SecurityID" Type="varchar(max)" />
+    <Property Name="SecurityIDSource" Type="varchar(max)" />
+    <Property Name="Qty" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TradeDate" Type="char" MaxLength="8" />
+    <Property Name="AvgPxIndicator" Type="int" />
+    <Property Name="AvgPxGroupID" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="TestColumn" Type="varchar" MaxLength="50" />
+    <Property Name="TestColumn2" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Test.dbo.OrderSummary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrderSummary">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="UnitPrice" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="Discount" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="nchar" MaxLength="5" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="RequiredDate" Type="datetime" />
+    <Property Name="ShippedDate" Type="datetime" />
+    <Property Name="ShipVia" Type="int" />
+    <Property Name="Freight" Type="money" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="40" />
+    <Property Name="ShipAddress" Type="nvarchar" MaxLength="60" />
+    <Property Name="ShipCity" Type="nvarchar" MaxLength="15" />
+    <Property Name="ShipRegion" Type="nvarchar" MaxLength="15" />
+    <Property Name="ShipPostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="ShipCountry" Type="nvarchar" MaxLength="15" />
+    <Property Name="Expr1" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="Quantity" Type="smallint" Nullable="false" />
+    <Property Name="Discount" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="TestModelStoreContainer">
+    <EntitySet Name="Tb_AllocationInst" EntityType="Self.Tb_AllocationInst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrderDetails].[OrderID] AS [OrderID], 
+    [OrderDetails].[ProductID] AS [ProductID], 
+    [OrderDetails].[UnitPrice] AS [UnitPrice], 
+    [OrderDetails].[Quantity] AS [Quantity], 
+    [OrderDetails].[Discount] AS [Discount]
+    FROM [dbo].[OrderDetails] AS [OrderDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Orders" EntityType="Self.Orders" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Orders].[OrderID] AS [OrderID], 
+    [Orders].[CustomerID] AS [CustomerID], 
+    [Orders].[EmployeeID] AS [EmployeeID], 
+    [Orders].[OrderDate] AS [OrderDate], 
+    [Orders].[RequiredDate] AS [RequiredDate], 
+    [Orders].[ShippedDate] AS [ShippedDate], 
+    [Orders].[ShipVia] AS [ShipVia], 
+    [Orders].[Freight] AS [Freight], 
+    [Orders].[ShipName] AS [ShipName], 
+    [Orders].[ShipAddress] AS [ShipAddress], 
+    [Orders].[ShipCity] AS [ShipCity], 
+    [Orders].[ShipRegion] AS [ShipRegion], 
+    [Orders].[ShipPostalCode] AS [ShipPostalCode], 
+    [Orders].[ShipCountry] AS [ShipCountry], 
+    [Orders].[TestColumn] AS [TestColumn]
+    FROM [dbo].[Orders] AS [Orders]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrderSummary" EntityType="Self.OrderSummary" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrderSummary].[OrderID] AS [OrderID], 
+    [OrderSummary].[CustomerID] AS [CustomerID], 
+    [OrderSummary].[EmployeeID] AS [EmployeeID], 
+    [OrderSummary].[OrderDate] AS [OrderDate], 
+    [OrderSummary].[RequiredDate] AS [RequiredDate], 
+    [OrderSummary].[ShippedDate] AS [ShippedDate], 
+    [OrderSummary].[ShipVia] AS [ShipVia], 
+    [OrderSummary].[Freight] AS [Freight], 
+    [OrderSummary].[ShipName] AS [ShipName], 
+    [OrderSummary].[ShipAddress] AS [ShipAddress], 
+    [OrderSummary].[ShipCity] AS [ShipCity], 
+    [OrderSummary].[ShipRegion] AS [ShipRegion], 
+    [OrderSummary].[ShipPostalCode] AS [ShipPostalCode], 
+    [OrderSummary].[ShipCountry] AS [ShipCountry], 
+    [OrderSummary].[Expr1] AS [Expr1], 
+    [OrderSummary].[ProductID] AS [ProductID], 
+    [OrderSummary].[UnitPrice] AS [UnitPrice], 
+    [OrderSummary].[Quantity] AS [Quantity], 
+    [OrderSummary].[Discount] AS [Discount]
+    FROM [dbo].[OrderSummary] AS [OrderSummary]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
