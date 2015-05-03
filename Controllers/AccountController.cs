@@ -329,6 +329,11 @@ namespace DashboardTest.Controllers
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
 
+        public void TestMessage()
+        {
+
+        }
+
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
         {
